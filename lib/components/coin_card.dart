@@ -6,6 +6,7 @@ class CoinCard extends StatelessWidget {
   final String value;
   final String percentage;
   final Color color;
+  final double elev;
 
   const CoinCard({
     Key key,
@@ -14,12 +15,14 @@ class CoinCard extends StatelessWidget {
     @required this.value,
     @required this.percentage,
     @required this.color,
+    @required this.elev,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       color: this.color,
+      elevation: this.elev,
       child: ListTile(
         leading: this.icon,
         title: Text(

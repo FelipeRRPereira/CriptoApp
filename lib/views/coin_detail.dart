@@ -1,4 +1,5 @@
 import 'package:cripto_app/components/coin_card.dart';
+import 'package:cripto_app/components/news.dart';
 import 'package:flutter/material.dart';
 
 class CoinDetail extends StatelessWidget {
@@ -56,10 +57,11 @@ class CoinDetail extends StatelessWidget {
                                     color: Color.fromRGBO(245, 49, 127, 1),
                                     elev: 0.0,
                                   ),
-                                  Image(
-                                    image: AssetImage('images/ic_chart.png'),
-                                    width: 278,
-                                    height: 62,
+                                  Image.asset(
+                                    'images/ic_chart.png',
+                                    width: 320,
+                                    height: 70,
+                                    fit: BoxFit.fitWidth,
                                   ),
                                 ],
                               ),
@@ -74,7 +76,8 @@ class CoinDetail extends StatelessWidget {
                               child: Column(
                                 children: <Widget>[
                                   Padding(
-                                    padding: const EdgeInsets.only(bottom: 10.0),
+                                    padding:
+                                        const EdgeInsets.only(bottom: 10.0),
                                     child: Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -95,12 +98,50 @@ class CoinDetail extends StatelessWidget {
                                     height: 340,
                                     child: ListView(
                                       children: <Widget>[
-                                        News(),
-                                        News(),
-                                        News(),
-                                        News(),
-                                        News(),
-                                        News(),
+                                        News(
+                                          description:
+                                              'CME Report: Bitcoin Futures Average Daily Volume up 93% in Second Quarter',
+                                          date: '14:30 pm 10 July 2020',
+                                          image: Image.asset(
+                                            'images/person_chart.png',
+                                            height: 100,
+                                            width: 100,
+                                            fit: BoxFit.none,
+                                          ),
+                                        ),
+                                        News(
+                                          description:
+                                              'Bitcoin ETF Decision Gets an Overwhelming Amount of Public Opinion',
+                                          date: '17:29 pm 10 July 2020',
+                                          image: Image.asset(
+                                            'images/coins.png',
+                                            height: 100,
+                                            width: 100,
+                                            fit: BoxFit.none,
+                                          ),
+                                        ),
+                                        News(
+                                          description:
+                                              'MasterCard applied for a payment system that combines blockchain and fi payments',
+                                          date: '11:08 am 9 July 2020',
+                                          image: Image.asset(
+                                            'images/person_chart.png',
+                                            height: 100,
+                                            width: 100,
+                                            fit: BoxFit.none,
+                                          ),
+                                        ),
+                                        News(
+                                          description:
+                                              'The \$ 40 million bitcoin hack that never happened',
+                                          date: '14:30 pm 8 July 2020',
+                                          image: Image.asset(
+                                            'images/person_chart.png',
+                                            height: 100,
+                                            width: 100,
+                                            fit: BoxFit.none,
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -116,49 +157,6 @@ class CoinDetail extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class News extends StatelessWidget {
-  const News({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      margin: EdgeInsets.only(bottom: 5.0, left: 0.0),
-      elevation: 0.0,
-      child: ListTile(
-        leading: Image(
-          image: AssetImage('images/person_chart.png'),
-        ),
-        title: Text(
-          'CME Report: Bitcoin Futures Average Daily Volume up 93% in Second Quarter',
-          style: TextStyle(
-            fontSize: 14.0,
-            color: Color.fromRGBO(74, 74, 74, 1),
-          ),
-        ),
-        subtitle: Row(
-          children: <Widget>[
-            Icon(
-              Icons.access_time,
-              color: Color.fromRGBO(125, 129, 136, 1),
-              size: 16.0,
-            ),
-            Text(
-              '14:30 pm 10 July 2020',
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Color.fromRGBO(125, 129, 136, 1),
-              ),
-            ),
-          ],
         ),
       ),
     );

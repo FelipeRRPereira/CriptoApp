@@ -47,6 +47,10 @@ flutter:
     - images/ic_ltc.png
     - images/ic_xrp.png
     - images/ic_chart.png
+    - images/coins.png
+    - images/master_coins.png
+    - images/person_chart.png
+    - images/smartphone.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

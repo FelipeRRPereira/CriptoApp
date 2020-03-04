@@ -1,4 +1,4 @@
-import 'package:cripto_app/views/dashboard.dart';
+import 'package:cripto_app/views/coin_detail.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(CriptoApp());
@@ -11,7 +11,8 @@ class CriptoApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purpleAccent[600],
       ),
-      home: Dashboard(title: 'Current Portfolio'),
+      // home: Dashboard(title: 'Current Portfolio'),
+      home: CoinDetail(),
     );
   }
 }

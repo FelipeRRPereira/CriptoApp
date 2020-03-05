@@ -1,5 +1,6 @@
 import 'package:cripto_app/components/coin_card.dart';
 import 'package:cripto_app/components/financial_summary.dart';
+import 'package:cripto_app/views/coin_detail.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatefulWidget {
@@ -91,33 +92,93 @@ class _DashboardState extends State<Dashboard> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        CoinCard(
-                          icon: Image.asset('images/ic_btc.png'),
-                          name: 'BTC Bitcoin',
-                          value: '\$6687.49',
-                          percentage: '6.34',
-                          color: Color.fromRGBO(245, 49, 127, 1),
+                        InkWell(
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CoinDetail(
+                                title: 'Bitcoin',
+                                name: 'BTC Bitcoin',
+                                color: Color.fromRGBO(245, 49, 127, 1),
+                                value: '\$6687.49',
+                                percentage: '6.34',
+                              ),
+                            ),
+                          ),
+                          child: CoinCard(
+                            icon: Image.asset('images/ic_btc.png'),
+                            name: 'BTC Bitcoin',
+                            value: '\$6687.49',
+                            percentage: '6.34',
+                            color: Color.fromRGBO(245, 49, 127, 1),
+                            elev: 2.0,
+                          ),
                         ),
-                        CoinCard(
-                          icon: Image.asset('images/ic_eth.png'),
-                          name: 'ETH Ethereum',
-                          value: '\$3587.25',
-                          percentage: '18.02',
-                          color: Color.fromRGBO(135, 57, 229, 1),
+                        InkWell(
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CoinDetail(
+                                title: 'Ethereum',
+                                name: 'ETH Ethereum',
+                                color: Color.fromRGBO(135, 57, 229, 1),
+                                value: '\$3587.25',
+                                percentage: '18.02',
+                              ),
+                            ),
+                          ),
+                          child: CoinCard(
+                            icon: Image.asset('images/ic_eth.png'),
+                            name: 'ETH Ethereum',
+                            color: Color.fromRGBO(135, 57, 229, 1),
+                            value: '\$3587.25',
+                            percentage: '18.02',
+                            elev: 2.0,
+                          ),
                         ),
-                        CoinCard(
-                          icon: Image.asset('images/ic_ltc.png'),
-                          name: 'LTC Litecoin',
-                          value: '\$187.49',
-                          percentage: '51.34',
-                          color: Color.fromRGBO(229, 99, 54, 1),
+                        InkWell(
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CoinDetail(
+                                title: 'Litecoin',
+                                name: 'LTC Litecoin',
+                                color: Color.fromRGBO(229, 99, 54, 1),
+                                value: '\$187.49',
+                                percentage: '51.34',
+                              ),
+                            ),
+                          ),
+                          child: CoinCard(
+                            icon: Image.asset('images/ic_ltc.png'),
+                            name: 'LTC Litecoin',
+                            color: Color.fromRGBO(229, 99, 54, 1),
+                            value: '\$187.49',
+                            percentage: '51.34',
+                            elev: 2.0,
+                          ),
                         ),
-                        CoinCard(
-                          icon: Image.asset('images/ic_xrp.png'),
-                          name: 'XRP Ripple',
-                          value: '\$0.49',
-                          percentage: '594K',
-                          color: Color.fromRGBO(165, 233, 74, 1),
+                        InkWell(
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CoinDetail(
+                                title: 'Ripple',
+                                name: 'XRP Ripple',
+                                color: Color.fromRGBO(165, 233, 74, 1),
+                                value: '\$0.49',
+                                percentage: '0.2',
+                              ),
+                            ),
+                          ),
+                          child: CoinCard(
+                            icon: Image.asset('images/ic_xrp.png'),
+                            name: 'XRP Ripple',
+                            value: '\$0.49',
+                            percentage: '0.2',
+                            color: Color.fromRGBO(165, 233, 74, 1),
+                            elev: 2.0,
+                          ),
                         ),
                       ],
                     ),

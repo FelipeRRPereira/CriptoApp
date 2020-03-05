@@ -3,7 +3,19 @@ import 'package:cripto_app/components/news.dart';
 import 'package:flutter/material.dart';
 
 class CoinDetail extends StatelessWidget {
-  const CoinDetail({Key key}) : super(key: key);
+  final String title;
+  final Color color;
+  final String name;
+  final String value;
+  final String percentage;
+  const CoinDetail({
+    Key key,
+    @required this.title,
+    @required this.color,
+    @required this.name,
+    @required this.value,
+    @required this.percentage,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +24,8 @@ class CoinDetail extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.deepPurple[800],
         centerTitle: true,
-        leading: const Icon(Icons.menu),
         title: Text(
-          'Bitcoin',
+          this.title,
           style: TextStyle(fontWeight: FontWeight.w300),
         ),
         actions: <Widget>[
@@ -40,33 +51,11 @@ class CoinDetail extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 10.0),
-                          child: Card(
-                            color: Color.fromRGBO(245, 49, 127, 1),
-                            child: Container(
-                              margin: EdgeInsets.only(bottom: 30.0),
-                              width: constaints.maxWidth,
-                              child: Column(
-                                children: <Widget>[
-                                  CoinCard(
-                                    icon: null,
-                                    name: 'BTC Bitcoin',
-                                    value: '\$6687.49',
-                                    percentage: '6.34',
-                                    color: Color.fromRGBO(245, 49, 127, 1),
-                                    elev: 0.0,
-                                  ),
-                                  Image.asset(
-                                    'images/ic_chart.png',
-                                    width: 320,
-                                    height: 70,
-                                    fit: BoxFit.fitWidth,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                        CoinCardDetail(
+                          name: this.name,
+                          value: this.value,
+                          percentage: this.percentage,
+                          color: this.color,
                         ),
                         Card(
                           child: Container(
@@ -95,7 +84,7 @@ class CoinDetail extends StatelessWidget {
                                     ),
                                   ),
                                   Container(
-                                    height: 340,
+                                    height: 330,
                                     child: ListView(
                                       children: <Widget>[
                                         News(
@@ -104,9 +93,7 @@ class CoinDetail extends StatelessWidget {
                                           date: '14:30 pm 10 July 2020',
                                           image: Image.asset(
                                             'images/person_chart.png',
-                                            height: 100,
-                                            width: 100,
-                                            fit: BoxFit.none,
+                                            fit: BoxFit.fitHeight,
                                           ),
                                         ),
                                         News(
@@ -115,9 +102,7 @@ class CoinDetail extends StatelessWidget {
                                           date: '17:29 pm 10 July 2020',
                                           image: Image.asset(
                                             'images/coins.png',
-                                            height: 100,
-                                            width: 100,
-                                            fit: BoxFit.none,
+                                            fit: BoxFit.fitHeight,
                                           ),
                                         ),
                                         News(
@@ -125,10 +110,8 @@ class CoinDetail extends StatelessWidget {
                                               'MasterCard applied for a payment system that combines blockchain and fi payments',
                                           date: '11:08 am 9 July 2020',
                                           image: Image.asset(
-                                            'images/person_chart.png',
-                                            height: 100,
-                                            width: 100,
-                                            fit: BoxFit.none,
+                                            'images/master_coins.png',
+                                            fit: BoxFit.fitHeight,
                                           ),
                                         ),
                                         News(
@@ -136,10 +119,17 @@ class CoinDetail extends StatelessWidget {
                                               'The \$ 40 million bitcoin hack that never happened',
                                           date: '14:30 pm 8 July 2020',
                                           image: Image.asset(
+                                            'images/smartphone.png',
+                                            fit: BoxFit.fitHeight,
+                                          ),
+                                        ),
+                                        News(
+                                          description:
+                                              'CME Report: Bitcoin Futures Average Daily Volume up 93% in Second Quarter',
+                                          date: '14:30 pm 10 July 2020',
+                                          image: Image.asset(
                                             'images/person_chart.png',
-                                            height: 100,
-                                            width: 100,
-                                            fit: BoxFit.none,
+                                            fit: BoxFit.fitHeight,
                                           ),
                                         ),
                                       ],
@@ -156,6 +146,51 @@ class CoinDetail extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CoinCardDetail extends StatelessWidget {
+  final String name;
+  final String value;
+  final String percentage;
+  final Color color;
+  const CoinCardDetail({
+    Key key,
+    @required this.name,
+    @required this.value,
+    @required this.percentage,
+    @required this.color,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10.0),
+      child: Card(
+        color: this.color,
+        child: Container(
+          margin: EdgeInsets.only(bottom: 30.0),
+          child: Column(
+            children: <Widget>[
+              CoinCard(
+                icon: null,
+                name: this.name,
+                value: this.value,
+                percentage: this.percentage,
+                color: this.color,
+                elev: 0.0,
+              ),
+              Image.asset(
+                'images/ic_chart.png',
+                width: 320,
+                height: 70,
+                fit: BoxFit.fitWidth,
+              ),
+            ],
           ),
         ),
       ),

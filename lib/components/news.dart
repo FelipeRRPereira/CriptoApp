@@ -16,7 +16,7 @@ class News extends StatelessWidget {
     return Card(
       color: Colors.white,
       margin: EdgeInsets.only(bottom: 5.0, left: 0.0),
-      elevation: 0.0,
+      elevation: 0.4,
       child: ListTile(
         leading: this.image,
         title: Text(
